@@ -1,17 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<%@include file="include/header.jsp" %>
 <%
-String username = (String)session.getAttribute("name");
-out.print(username);
+
+response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+
+response.setHeader("Pragma","no-cache");
+
+response.setHeader("Expires", "0"); 
+if(session.getAttribute("username")==null)
+{
+	response.sendRedirect("index.jsp");
+}
+
 %>
 
-<div>${username}</div>
+<div style="margin-left: 100px;color: blue;margin-top: 50px;">Hello ${username},Welcome to Profile page</div>
 </body>
 </html>

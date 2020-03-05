@@ -149,20 +149,16 @@ public class empDao {
 				eb.setEmail(rs.getString(4));
 				eb.setDate(rs.getString(5));
 				eb.setPhnenumber(rs.getDouble(6));
-				System.out.println("date is " + eb.getDate());
+				//System.out.println("date is " + eb.getDate());
 				list.add(eb);
 			}
-			con.close();
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		if (list == null) {
-			System.out.println("list is not displyed");
-		} else {
-			System.out.println("list is displayed ");
-		}
-
+		
 		return list;
 	}
 }

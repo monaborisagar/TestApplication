@@ -18,6 +18,7 @@ public class utility {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			System.out.println("connection did not find");
 		}
 		return con;
 		
