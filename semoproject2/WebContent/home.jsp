@@ -96,7 +96,7 @@ if(p!=null)
 								<%} %>
 
 							</table>
-						
+						<a href="test.jsp">create test</a>
 					</div>
 				</div>
 			</div>

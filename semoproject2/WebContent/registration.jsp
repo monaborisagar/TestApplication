@@ -49,7 +49,7 @@ String a = (String)request.getAttribute("alert");
 									class="col-md-4 col-form-label text-md-right">password</label>
 								<div class="col-md-6">
 									<input type="text" id="password" class="form-control"
-										name="password" required="required">
+										name="password" required="required" >
 								</div>
 							</div>
 
@@ -108,7 +108,7 @@ String a = (String)request.getAttribute("alert");
 					<div class="card">
 						<div class="card-header">Update</div>
 						<div class="card-body">
-							<form name="myForm" onsubmit="return validate()" method="POST"
+							<form name="myForm" onsubmit="return validate();" method="POST"
 								action="updateServlet">
 								<div>
 									Update page for
@@ -125,7 +125,7 @@ String a = (String)request.getAttribute("alert");
 										class="col-md-4 col-form-label text-md-right">Username</label>
 									<div class="col-md-6">
 										<input type="text" id="username" class="form-control"
-											name="username" value="<%=e.getUsername() %>">
+											name="username" value="<%=e.getUsername() %>" required="required">
 									</div>
 								</div>
 
@@ -134,7 +134,7 @@ String a = (String)request.getAttribute("alert");
 										class="col-md-4 col-form-label text-md-right">password</label>
 									<div class="col-md-6">
 										<input type="text" id="password" class="form-control"
-											name="password" value="<%=e.getPassword() %>">
+											name="password" value="<%=e.getPassword() %>" required="required">
 									</div>
 								</div>
 
@@ -143,7 +143,7 @@ String a = (String)request.getAttribute("alert");
 										class="col-md-4 col-form-label text-md-right">email</label>
 									<div class="col-md-6">
 										<input type="text" id="email" class="form-control"
-											name="email" value="<%=e.getEmail() %>">
+											name="email" value="<%=e.getEmail() %>" required="required">
 									</div>
 								</div>
 
@@ -152,7 +152,7 @@ String a = (String)request.getAttribute("alert");
 										class="col-md-4 col-form-label text-md-right">date</label>
 									<div class="col-md-6">
 										<input type="text" id="date" class="form-control" name="date"
-											value="<%=e.getDate() %>">
+											value="<%=e.getDate() %>" required="required">
 									</div>
 								</div>
 
@@ -161,7 +161,7 @@ String a = (String)request.getAttribute("alert");
 										class="col-md-4 col-form-label text-md-right">phnenumber</label>
 									<div class="col-md-6">
 										<input type="text" id="phnenumber" class="form-control"
-											name="phnenumber" value="<%=e.getPhnenumber() %>">
+											name="phnenumber" value="<%=e.getPhnenumber() %>" required="required">
 									</div>
 								</div>
 
@@ -194,7 +194,67 @@ String a = (String)request.getAttribute("alert");
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
+
+
+
+
+
+
+</body>
 <script type="text/javascript">
+function validate() {
+	//password validation
+	var password1 = document.getElementById("password").value;
+	alert(password1)
+	 if (password1 == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+	 var pattern1=/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+	if (!password1.match(pattern1)) {
+        alert("you have 6 to 16 valid characters, it doesn't validate that it has at least a number, and at least a special character.\n");
+        return false;
+	} 
+	var username1 = document.getElementById("username").value;
+
+	if (username1 == "" || username1 == null) {
+		alert("Please enter username");
+		return false;
+	}
+	 var date = document.getElementById("date").value;
+	 alert(date);
+	var reg = /^(0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])[\/\-]\d{4}$/;
+	if (!date.match(reg)) {
+	alert("date format is not proper")
+	return false;
+	} 
+	var phnenumber = document.getElementById("phnenumber").value;
+
+	//alert(phnenumber.length);
+	//var phoneno = /^([0-2][0-9]|(3)[0-1])(\-/)(((0)[0-9])|((1)[0-2]))(\-/)\d{4}$/;
+	/* if (!(phoneno).test(phnenumber)) {
+		
+	
+		alert("phnenumber pattern is not matched ");
+		return false;
+	} */
+	
+	 
+	  /*   var dob =document.getElementById("date").value;
+	   // alert("fdbdfb");
+	    var pattern = /^([0-2][0-9]|(3)[0-1])(\-/)(((0)[0-9])|((1)[0-2]))(\-/)\d{4}$/;
+	    //alert(dob);
+	    
+	    if ( !pattern.test(dob)) {
+	    	
+	        alert("Invalid date of birth\n");
+	        return false;
+	    }else
+	    	{
+	    	alert("valid date of birth")
+	    	}
+	    */
+}
 function reset()
   {
 	alert("inside resdet");
@@ -205,48 +265,9 @@ function reset()
 	 document.getElementById("phnenumber").value='';
 	
 	}
-	function validate() {
-		var username1 = document.getElementById("username").value;
-
-		if (username1 == "" || username1 == null) {
-			alert("Please enter username");
-			return false;
-		}
-
-		var phnenumber = document.getElementById("phnenumber").value;
-
-		//alert(phnenumber.length);
-		var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-		/* if (!(phoneno).test(phnenumber)) {
-			
-		
-			alert("phnenumber pattern is not matched ");
-			return false;
-		} */
-		
-		 
-		    var dob =document.getElementById("date").value;
-		 //   alert("fdbdfb");
-		    var pattern = /^(0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])[\/\-]\d{4}$/;
-		  //  alert(dob);
-		    
-		    if ( !pattern.test(dob)) {
-		    	
-		        alert("Invalid date of birth\n");
-		        return false;
-		    }
-		
-		   
-	}
+	
 	
 </script>
-
-
-
-
-
-</body>
-
 </html>
 
 

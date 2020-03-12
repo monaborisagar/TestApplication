@@ -87,6 +87,7 @@ public class loginServlet extends HttpServlet {
 
 		} else {
 			System.out.println("username or password mismatched  ");
+			response.sendRedirect("index.jsp");
 
 		}
 	}

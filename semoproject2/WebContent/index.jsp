@@ -27,7 +27,7 @@
                    
                         <div class="card-header">Login</div>
                         <div class="card-body">
-                            <form name="my-form"  method="POST" action="loginServlet" onsubmit="return validate();">
+                            <form name="my-form"  method="POST" action="loginServlet" onsubmit="return validate12();">
                                 <div class="form-group row">
                                     <label for="full_name" class="col-md-4 col-form-label text-md-right">Username</label>
                                     <div class="col-md-6">
@@ -68,7 +68,7 @@
 </body>
 <script type="text/javascript">
 
-	function validate() {
+	function validate12() {
 		var username1 = document.getElementById("username").value;
 		var password = document.getElementById("password").value;
 		
